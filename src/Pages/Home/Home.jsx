@@ -5,9 +5,16 @@ import MedicineOffer from './MedicineOffer';
 import CommissionBenefits from './CommissionBenefits';
 import SerialConfirm from './SerialConfirm';
 import OrderPage from './OrderPage';
+
+import BannerFinal from './BannerFinal';
+import OrderText from './OrderText';
+import OrderCard from './OrderCard';
+import OrderFinal from './OrderFinal';
+
 import { FaArrowDown, FaArrowUp, FaFacebook, FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa';
 import useSocialLinks from '../../Hook/useSocialLinks';
 import MetaPixel from '../Pixel/MetaPixel';
+
 
 const Home = () => {
 
@@ -51,6 +58,18 @@ const Home = () => {
         <title>Home | Astha Homeo Hall</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
+
+      {/* Banner Final Section */}
+      <BannerFinal scrollToOrder={scrollToOrder}></BannerFinal>
+
+      {/* Order Text */}
+      <OrderText scrollToOrder={scrollToOrder}></OrderText>
+
+      {/* Order Card */}
+      <OrderCard scrollToOrder={scrollToOrder}></OrderCard>
+
+      {/* Order Final*/}
+      <OrderFinal scrollToOrder={scrollToOrder}></OrderFinal>
 
       {/* Banner Section */}
       <Banner scrollToOrder={scrollToOrder} />
