@@ -16,7 +16,7 @@ const OrderPage = () => {
   const AxiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
-  const price = 2000;
+  const price = 1590;
   const discount = 0;
 
   const totalAmount = (price * quantity) + deliveryCharge - discount;
@@ -43,7 +43,7 @@ const OrderPage = () => {
     const selectedZone = e.target.value;
     setDeliveryZone(selectedZone);
     
-    if (selectedZone === 'ঢাকার ভিতরে - BDT80.00') {
+    if (selectedZone === 'ঢাকার ভিতরে - BDT50.00') {
       setDeliveryCharge(80);
     } else if (selectedZone === 'ঢাকার বাহিরে - BDT100.00') {
       setDeliveryCharge(100);
@@ -110,7 +110,7 @@ const OrderPage = () => {
   };
 
   return (
-    <div className="text-black bg-pink-50 p-5 md:p-10">
+    <div className="text-black bg-amber-50 p-5 md:p-10 mt-4">
       <h1 className="text-center text-xl md:text-2xl font-bold text-black mb-6 md:mb-8">
         তাই আর দেরি না করে আজই অর্ডার করুন
       </h1>
@@ -121,12 +121,12 @@ const OrderPage = () => {
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center mb-4">
               <img 
-                src="https://i.ibb.co/dcLVnRF/456855441-931478045457980-6717098278283770387-n.jpg" 
+                src="https://i.ibb.co/3Tph52k/logo1.jpg" 
                 alt="product" 
                 className="w-12 h-12 md:w-16 md:h-16 rounded-lg object-cover mr-4"
               />
               <div>
-                <p className="font-bold text-black">যৌ'ন কোর্স </p>
+                <p className="font-bold text-black">প্রিমিয়াম MACA ROOT পাউডার 300 গ্রাম</p>
                 <p className="text-gray-700">BDT {price.toFixed(2)}</p>
               </div>
             </div>
@@ -196,7 +196,7 @@ const OrderPage = () => {
                 onChange={handleDeliveryZoneChange}
                 className="w-full p-2 border bg-white border-gray-300 rounded"
               >
-                <option value="ঢাকার ভিতরে - BDT80.00">ঢাকার ভিতরে - BDT80.00</option>
+                <option value="ঢাকার ভিতরে - BDT50.00">ঢাকার ভিতরে - BDT50.00</option>
                 <option value="ঢাকার বাহিরে - BDT100.00">ঢাকার বাহিরে - BDT100.00</option>
               </select>
             </div>
@@ -209,7 +209,7 @@ const OrderPage = () => {
                 className="w-full p-2 border bg-white border-gray-300 rounded"
               />
             </div>
-            <button type="submit" className="w-full py-2 bg-pink-500 text-white rounded">Place Order</button>
+            <button type="submit" className="w-full py-2 bg-orange-500 text-white rounded">Place Order</button>
           </form>
         </div>
       </div>

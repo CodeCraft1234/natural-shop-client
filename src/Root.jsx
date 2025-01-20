@@ -8,6 +8,7 @@ import { useContext } from "react";
 import Footer from "./Components/Footer/Footer";
 import { AuthContext } from "./Pages/Security/AuthProvider";
 import TheAdmin from "./Pages/TheAdmin";
+import MetaPixel from "./Pages/Pixel/MetaPixel";
 
 const Root = () => {
   const location = useLocation();
@@ -16,16 +17,16 @@ const Root = () => {
     location.pathname.includes("login") ||
     location.pathname.includes("signup");
     location.pathname.includes("search");
-  const { user } = useContext(AuthContext);
 
   return (
     <div className="bg-white">
+         <MetaPixel />
       <ScrollTop />
       {noheaderfooter || <TheAdmin />}
       <div className="min-h-screen overflow-y-hidden max-w-auto mx-auto">
         <Outlet />
       </div>
-      {noheaderfooter || <Footer />}
+      {/* {noheaderfooter || <Footer />} */}
     </div>
   );
 };

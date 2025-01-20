@@ -1,29 +1,64 @@
-import React, { useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
-import Banner from './Banner';
-import MedicineOffer from './MedicineOffer';
-import CommissionBenefits from './CommissionBenefits';
-import SerialConfirm from './SerialConfirm';
-import OrderPage from './OrderPage';
-import BannerFinal from './BannerFinal';
-import OrderText from './OrderText';
-import OrderCard from './OrderCard';
-import OrderFinal from './OrderFinal';
+import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import Banner from "./Banner";
+import MedicineOffer from "./MedicineOffer";
+import CommissionBenefits from "./CommissionBenefits";
+import SerialConfirm from "./SerialConfirm";
+import OrderPage from "./OrderPage";
+import BannerFinal from "./BannerFinal";
+import OrderText from "./OrderText";
+import OrderCard from "./OrderCard";
+import OrderFinal from "./OrderFinal";
+import {
+  FaArrowDown,
+  FaArrowUp,
+  FaFacebook,
+  FaFacebookMessenger,
+  FaWhatsapp,
+} from "react-icons/fa";
+import useSocialLinks from "../../Hook/useSocialLinks";
+import MetaPixel from "../Pixel/MetaPixel";
+import OrderFull from "./OrderFull";
 
 const Home = () => {
+  const [socialLinks] = useSocialLinks();
+
+  const [showScrollButton, setShowScrollButton] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollButton(true);
+        setScrollDirection("up");
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = (direction) => {
+    const target = direction === "up" ? 0 : document.body.scrollHeight;
+    window.scrollTo({ top: target, behavior: "smooth" });
+  };
+
   const orderPageRef = useRef(null);
 
   // Function to scroll to OrderPage
   const scrollToOrder = () => {
     if (orderPageRef.current) {
-      orderPageRef.current.scrollIntoView({ behavior: 'smooth' });
+      orderPageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <div>
+      <MetaPixel />
       <Helmet>
-        <title>Home | Astha Homeo Hall</title>
+        <title>Home | Macapowderbd</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
 
@@ -39,31 +74,25 @@ const Home = () => {
       {/* Order Final*/}
       <OrderFinal scrollToOrder={scrollToOrder}></OrderFinal>
 
+      {/* Order Full*/}
+      <OrderFull scrollToOrder={scrollToOrder}></OrderFull>
+
       {/* Banner Section */}
-      <Banner scrollToOrder={scrollToOrder} />
+      {/* <Banner scrollToOrder={scrollToOrder} /> */}
 
       {/* Medicine Offer Section */}
-      <MedicineOffer scrollToOrder={scrollToOrder} />
+      {/* <MedicineOffer scrollToOrder={scrollToOrder} /> */}
 
       {/* Commission Benefits Section */}
-      <CommissionBenefits scrollToOrder={scrollToOrder} />
+      {/* <CommissionBenefits scrollToOrder={scrollToOrder} /> */}
 
       {/* Serial Confirm Section */}
-      <SerialConfirm scrollToOrder={scrollToOrder} />
+      {/* <SerialConfirm scrollToOrder={scrollToOrder} /> */}
 
       {/* Order Page Section */}
       <div ref={orderPageRef}>
         <OrderPage />
       </div>
-
-      {/* Call Button for All Devices */}
-      <a 
-        href="tel:01709-049759"  // Replace with your phone number
-        className="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-700 transition-colors"
-        style={{ zIndex: 1000 }} // Ensure the button appears above other content
-      >
-        Call Us
-      </a>
     </div>
   );
 };

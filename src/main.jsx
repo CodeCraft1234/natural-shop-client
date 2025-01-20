@@ -23,6 +23,7 @@ import AddLinks from "./Pages/Dashboard/AddLinks";
 import Settings from "./Pages/Dashboard/Settings";
 import OrderSuccess from "./Pages/Home/OrderSuccess";
 import OrderDetails from "./Pages/Dashboard/Routes/OrderDetails copy";
+import PixelCodes from "./Pages/Pixel/PixelCodes";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
-        path: "/admin/login-php",
+        path: "/login",
         element: <Login></Login>,
       },
       {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
           {
             path:'/dashboard/admin/totalCustomers',
             element:<TotalCustomers></TotalCustomers>
+          },
+          {
+            path:'/dashboard/admin/pixelCodes',
+            element:<PixelCodes></PixelCodes>
           },
           {
             path:'/dashboard/admin/allOrders',

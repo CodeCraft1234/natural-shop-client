@@ -1,40 +1,20 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { MdOutlinePayments, MdPeopleOutline } from "react-icons/md";
-import { BsCartCheckFill, BsCartPlusFill } from "react-icons/bs";
 import { AiOutlineSetting } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
-
-
 import { IoIosLogOut } from "react-icons/io";
-
 import { AuthContext } from "../Security/AuthProvider";
 import { Helmet } from "react-helmet-async";
-import useLogo from "../../Hook/useLogo";
+import useSocialLinks from "../../Hook/useSocialLinks";
 
 const AdminDashboard = () => {
-  const [logo, setLogo] = useLogo();
-  const [latestLogo, setLatestLogo] = useState(null);
+
   const location = useLocation();
-
-  useEffect(() => {
-    if (logo && logo.length > 0) {
-      // Sort the logos based on date in descending order
-      const sortedLogo = [...logo].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
-
-      // Get the latest logo
-      const latest = sortedLogo[0];
-
-      // Set the sorted logo and latest logo state
-      setLogo(sortedLogo);
-      setLatestLogo(latest);
-    }
-  }, [logo, setLogo]);
-
-  const { user, logOut } = useContext(AuthContext);
+  const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [socialLinks]=useSocialLinks()
+  console.log(socialLinks);
 
   const handleLogOut = () => {
     logOut().then().catch();
@@ -44,8 +24,8 @@ const AdminDashboard = () => {
   const getButtonClass = (path) => {
     return `w-full mb-2 text-start  py-2  px-1 rounded-lg focus:outline-none ${
       location.pathname === path
-        ? "bg-blue-500 text-white"
-        : " text-white hover:bg-red-700"
+        ? "bg-yellow-500 text-black"
+        : " text-white hover:bg-yellow-600"
     }`;
   };
 
@@ -59,8 +39,8 @@ const AdminDashboard = () => {
         <div className="flex items-center justify-center mb-8">
           <Link to={"/"}>
             <img
-              className="h-10 w-56 "
-              src='https://i.ibb.co/PNMKyJz/Whats-App-Image-2024-09-06-at-01-04-31-c6d5471a.jpg'
+              className="h-20 w-56 "
+              src={socialLinks?.logo2}
               alt="Logo"
             />
           </Link>
@@ -91,6 +71,14 @@ const AdminDashboard = () => {
                 Customers
               </button>
             </Link>
+
+            <Link to="/dashboard/admin/pixelCodes">
+              <button className={getButtonClass("/dashboard/admin/pixelCodes")}>
+                <MdPeopleOutline className="text-xl inline-block mr-2" />
+                Pixel Codes
+              </button>
+            </Link>
+            
             <Link to="/dashboard/admin/settings">
               <button className={getButtonClass("/dashboard/admin/settings")}>
                 <AiOutlineSetting className="text-xl inline-block mr-2" />
