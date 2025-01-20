@@ -1,24 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import Banner from "./Banner";
-import MedicineOffer from "./MedicineOffer";
-import CommissionBenefits from "./CommissionBenefits";
-import SerialConfirm from "./SerialConfirm";
+
 import OrderPage from "./OrderPage";
 import BannerFinal from "./BannerFinal";
 import OrderText from "./OrderText";
 import OrderCard from "./OrderCard";
 import OrderFinal from "./OrderFinal";
-import {
-  FaArrowDown,
-  FaArrowUp,
-  FaFacebook,
-  FaFacebookMessenger,
-  FaWhatsapp,
-} from "react-icons/fa";
+
 import useSocialLinks from "../../Hook/useSocialLinks";
 import MetaPixel from "../Pixel/MetaPixel";
 import OrderFull from "./OrderFull";
+
+
 
 const Home = () => {
   const [socialLinks] = useSocialLinks();
