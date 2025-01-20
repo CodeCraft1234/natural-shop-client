@@ -8,6 +8,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
 import auth from "./firebase.config";
 import useLogo from "../../Hook/useLogo";
+import useSocialLinks from "../../Hook/useSocialLinks";
 
 const Login = () => {
   const { signIn, googleSignIn, facebookSignin, githubLogin } = useContext(AuthContext);
@@ -86,6 +87,8 @@ const Login = () => {
 
   const [show, setShow] = useState(false);
 
+  const [socialLinks]=useSocialLinks()
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Helmet>
@@ -97,7 +100,7 @@ const Login = () => {
           <Link to={"/"}>
             <img
               className="h-20 w-56 "
-              src='https://i.ibb.co/PNMKyJz/Whats-App-Image-2024-09-06-at-01-04-31-c6d5471a.jpg'
+              src={socialLinks?.logo2}
               alt=""
             />
           </Link>
