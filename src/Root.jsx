@@ -26,7 +26,7 @@ const Root = () => {
       <div className="min-h-screen overflow-y-hidden max-w-auto mx-auto">
         <Outlet />
       </div>
-      {noheaderfooter || <Footer />}
+      {/* {noheaderfooter || <Footer />} */}
     </div>
   );
 };
