@@ -1,7 +1,8 @@
 import axios from "axios";
 
+
 const AxiosPublic=axios.create({
-    baseURL:'https://astha-homeo.vercel.app'
+    baseURL:'https://macapowderbd.vercel.app'
 })
 const useAxiosPublic = () => {
     return AxiosPublic

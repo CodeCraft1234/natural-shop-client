@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../Axios/useAxiosPublic";
 import useLogo from "../../Hook/useLogo";
+import useSocialLinks from "../../Hook/useSocialLinks";
 
 const image_hosting_key = "6fbc3358bbb1a92b78e2dee0f5ca1b94";
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -78,6 +79,9 @@ const Register = () => {
     }
   }, [logo, setLogo]);
 
+
+  const [socialLinks]=useSocialLinks()
+
   return (
     <div className="flex  justify-center items-center min-h-screen bg-gray-100">
       <Helmet>
@@ -89,7 +93,7 @@ const Register = () => {
           <Link to={"/"}>
             <img
               className="h-20 w-56 "
-              src='https://i.ibb.co/PNMKyJz/Whats-App-Image-2024-09-06-at-01-04-31-c6d5471a.jpg'
+              src={socialLinks?.logo2}
               alt=""
             />
           </Link>
@@ -171,7 +175,7 @@ const Register = () => {
             </button>
           </div>
           <div className="text-center text-sm text-gray-600">
-            <Link to="/admin/login-php" className="text-blue-600 hover:text-blue-500">
+            <Link to="/login" className="text-blue-600 hover:text-blue-500">
               Already have an account? Login
             </Link>
           </div>

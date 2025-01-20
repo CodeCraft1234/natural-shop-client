@@ -17,9 +17,7 @@ const TheAdmin = () => {
           <NavLink className='flex items-center gap-1' to={"/dashboard/admin/adminHome"}>
           <MdDashboard className="text-xs sm:text-sm md:text-base lg:text-lg" />  Dashboard
             </NavLink>
-          <NavLink className='flex items-center gap-1' to={"/dashboard/admin/addProduct"}>
-          <span><IoIosAddCircle className="text-xs sm:text-sm md:text-base lg:text-lg" /></span>Add Product
-            </NavLink>
+        
             </div>
            }
         </div>

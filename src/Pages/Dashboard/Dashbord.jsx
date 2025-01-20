@@ -10,7 +10,7 @@ const Dashboard = ({ showSidebar }) => {
 
   return (
         <div
-          className={` bg-[#1b1b1b] w-44 min-h-screen lg:fixed text-white  ${
+          className={` bg-[#0d9048] w-44 min-h-screen lg:fixed text-white  ${
             showSidebar ? "block" : "hidden"
           } md:block`}
         >
