@@ -7,7 +7,7 @@ const OrderFull = () => {
       <div className="bg-orange-100 text-center py-4 px-6 rounded-md w-full max-w-4xl shadow-md">
         <p className="text-lg md:text-xl font-medium text-gray-700">
           প্রয়োজন হলে কল করুন:{" "}
-          <span className="text-red-600 font-bold">01601-675007</span>
+          <span className="text-red-600 font-bold">01827-753150</span>
         </p>
       </div>
 
