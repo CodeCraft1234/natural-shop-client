@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 import OrderPage from "./OrderPage";
 import BannerFinal from "./BannerFinal";
+import Banner from "./Banner";
 import OrderText from "./OrderText";
 import OrderCard from "./OrderCard";
 import OrderFinal from "./OrderFinal";
@@ -76,7 +77,7 @@ const Home = () => {
       <ClientReview scrollToOrder={scrollToOrder}></ClientReview>
 
       {/* Banner Section */}
-      {/* <Banner scrollToOrder={scrollToOrder} /> */}
+      <Banner scrollToOrder={scrollToOrder} />
 
       {/* Medicine Offer Section */}
       {/* <MedicineOffer scrollToOrder={scrollToOrder} /> */}
