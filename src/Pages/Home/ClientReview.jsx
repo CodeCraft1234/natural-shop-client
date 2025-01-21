@@ -77,7 +77,7 @@ const ClientReview = () => {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="w-1/3 flex-shrink-0 px-2 mr-0"
+              className="w-1/3 flex-shrink-0 px-2 mr-0 sm:mr-16"
               style={{ width: "33.33%" }}
             >
               <div className="bg-white rounded-lg shadow-md">
