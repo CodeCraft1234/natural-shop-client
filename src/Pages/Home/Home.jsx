@@ -10,6 +10,7 @@ import OrderFinal from "./OrderFinal";
 import useSocialLinks from "../../Hook/useSocialLinks";
 import MetaPixel from "../Pixel/MetaPixel";
 import OrderFull from "./OrderFull";
+import ClientReview from "./ClientReview";
 
 
 
@@ -69,6 +70,10 @@ const Home = () => {
 
       {/* Order Full*/}
       <OrderFull scrollToOrder={scrollToOrder}></OrderFull>
+
+
+      {/* Client Review*/}
+      <ClientReview scrollToOrder={scrollToOrder}></ClientReview>
 
       {/* Banner Section */}
       {/* <Banner scrollToOrder={scrollToOrder} /> */}
